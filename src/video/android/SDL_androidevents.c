@@ -85,9 +85,9 @@ Android_PumpEvents(_THIS)
             isPaused = 0;
             ANDROIDAUDIO_ResumeDevices();
             /* Restore the GL Context from here, as this operation is thread dependent */
-            if (!SDL_HasEvent(SDL_QUIT)) {
-                android_egl_context_restore();
-            }
+            //if (!SDL_HasEvent(SDL_QUIT)) {
+                //android_egl_context_restore();
+            //}
         }
     }
     else {
@@ -105,7 +105,7 @@ Android_PumpEvents(_THIS)
         }
 #else
         if(SDL_SemTryWait(Android_PauseSem) == 0) {
-            android_egl_context_backup();
+            // android_egl_context_backup();
             ANDROIDAUDIO_PauseDevices();
             isPaused = 1;
         }
